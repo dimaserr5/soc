@@ -58,4 +58,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/user/my-profile',[MyProfileController::class, 'get'])
         ->middleware(['auth', 'verified'])->name('myprofile');
+
+    Route::get('/user/api-generate',[MyProfileController::class, 'generate_api'])
+        ->middleware(['auth', 'verified'])->name('generateapi');
 });

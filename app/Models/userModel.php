@@ -11,4 +11,10 @@ class userModel extends Model
         $user = DB::table('users')->where('id', $id)->first();
         return $user;
     }
+
+    public static function addTokeUser($id, $token) {
+        $add =  DB::table('users')
+            ->where('id', '=', $id)
+            ->update(['api_key' => $token]);
+    }
 }
