@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            Мой профиль
         </h2>
     </x-slot>
 
@@ -12,15 +12,15 @@
                     <div class="block_info_profile">
                         <div class="block_info_profile_elem">
                             <span>Почта</span>
-                            <span>{{ $usermail }}</span>
+                            <span style="color: #c2c2c2;">{{ $usermail }}</span>
                         </div>
                         <div class="block_info_profile_elem">
                             <span>Имя</span>
-                            <span>{{ $name }}</span>
+                            <span style="color: #c2c2c2;">{{ $name }}</span>
                         </div>
                         <div class="block_info_profile_elem">
                             <span>Статус</span>
-                            <span>{{ $user_status }}</span>
+                            <span style="color: #c2c2c2;">{{ $user_status }}</span>
                         </div>
                     </div>
                 </div>
