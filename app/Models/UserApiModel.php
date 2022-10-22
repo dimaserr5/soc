@@ -8,6 +8,15 @@ use Illuminate\Support\Facades\DB;
 
 class UserApiModel extends Model
 {
+
+    public static function infoApi($api_id) {
+        $api_info = DB::table('apis')->where('id', $api_id)->first();
+
+        return $api_info;
+
+    }
+
+
     public static function getMyApis($user_id) {
         $user = DB::table('apis')->where('user_id', $user_id)->get();
 
@@ -28,6 +37,10 @@ class UserApiModel extends Model
             'name' => $name,
             'api_key' => $user_id."-".rand(10000,99999999)."-".rand(100,999999)
         ]);
+    }
+
+    public static function delete_api($api_id) {
+        DB::table('apis')->where('id', '=', $api_id)->delete();
     }
 
 }

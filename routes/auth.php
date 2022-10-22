@@ -66,5 +66,9 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/user/api/add',[UserApiController::class, 'add_api'])
         ->middleware(['auth', 'verified'])->name('userapiadd');
+
+    Route::post('/user/api/delete',[UserApiController::class, 'delete_api'])
+        ->middleware(['auth', 'verified'])->name('userapidelete');
+
     //----
 });

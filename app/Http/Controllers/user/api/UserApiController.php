@@ -59,6 +59,24 @@ class UserApiController extends Controller
 
         return $json;
 
-        //
+    }
+
+    public function delete_api(Request $request) {
+
+        header('Content-Type: application/json');
+
+        (int)$id_api = $request->input('id');
+
+        $info_api = UserApiModel::infoApi($id_api);
+
+        if($info_api->id) {
+
+            if($info_api->user_id == auth::Id()){
+                $delete = UserApiModel::delete_api($info_api->id);
+            }
+
+        }
+
+        return 1;
     }
 }

@@ -12,7 +12,4 @@ class userModel extends Model
         return $user;
     }
 
-    public static function addTokeUser($id, $name, $token) {
-
-    }
 }

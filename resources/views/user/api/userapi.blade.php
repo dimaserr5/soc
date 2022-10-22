@@ -30,7 +30,7 @@
                             <tr>
                                 <th style="vertical-align: middle;" scope="row"><span>{{ $key['name'] }}</span></th>
                                 <td style="vertical-align: middle;">{{ $key['api_key'] }}</td>
-                                <td style="vertical-align: middle;"><a class="btn">Удалить</a></td>
+                                <td style="vertical-align: middle;"><button onclick="delete_api({{ $key['id'] }})" class="btn">Удалить</button></td>
                             </tr>
                             <?php endforeach;?>
                             </tbody>
@@ -100,6 +100,23 @@
             }else {
                 alert_block_error.style.display = "block";
                 alert_block_error.innerHTML = 'Ошибка, введите имя ключа';
+            }
+        }
+
+        function delete_api(id) {
+            if(id) {
+                $.ajax({
+                    url: "{{ route('userapidelete') }}",
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    method: 'post',
+                    dataType: 'json',
+                    data: {id: id},
+                    success: function(data){
+                        setTimeout(function(){ window.location.reload()}, 100);
+                    }
+                });
             }
         }
     </script>
