@@ -32,23 +32,7 @@ class MyProfileController extends Controller
 
         }
 
-        $data['api_key'] = $user->api_key;
-
 
         return View::make('user.myprofile', $data);
-    }
-
-    public function generate_api() {
-
-        $user = userModel::getUser(auth::id());
-
-        if(!$user->api_key) {
-            $token_set = auth::id()."-".rand(100,9999999);
-
-            userModel::addTokeUser(auth::id(),$token_set);
-
-        }
-
-        return redirect()->route('myprofile');
     }
 }

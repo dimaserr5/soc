@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\user\MyProfileController;
+use App\Http\Controllers\user\api\UserApiController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\NewPasswordController;
@@ -59,6 +60,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/user/my-profile',[MyProfileController::class, 'get'])
         ->middleware(['auth', 'verified'])->name('myprofile');
 
-    Route::get('/user/api-generate',[MyProfileController::class, 'generate_api'])
-        ->middleware(['auth', 'verified'])->name('generateapi');
+    //api-s user vievs
+    Route::get('/user/api',[UserApiController::class, 'get'])
+        ->middleware(['auth', 'verified'])->name('userapi');
+
+    Route::post('/user/api/add',[UserApiController::class, 'add_api'])
+        ->middleware(['auth', 'verified'])->name('userapiadd');
+    //----
 });

@@ -21,6 +21,11 @@
                         Мой профиль
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('userapi')" :active="request()->routeIs('userapi')">
+                        API
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
@@ -73,6 +78,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('myprofile')" :active="request()->routeIs('myprofile')">
                 Мой профиль
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('userapi')" :active="request()->routeIs('userapi')">
+                API
             </x-responsive-nav-link>
         </div>
 

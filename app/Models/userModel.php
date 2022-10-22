@@ -12,9 +12,7 @@ class userModel extends Model
         return $user;
     }
 
-    public static function addTokeUser($id, $token) {
-        $add =  DB::table('users')
-            ->where('id', '=', $id)
-            ->update(['api_key' => $token]);
+    public static function addTokeUser($id, $name, $token) {
+
     }
 }

@@ -22,14 +22,6 @@
                             <span>Статус</span>
                             <span style="color: #c2c2c2;">{{ $user_status }}</span>
                         </div>
-                        <div class="block_info_profile_elem">
-                            <span>API-Ключ</span>
-                            <?php if($api_key) : ?>
-                                <span style="color: #c2c2c2;">{{ $api_key }}</span>
-                            <?php else: ?>
-                                <a href="{{ route("generateapi") }}" style="color: red;">Создать ключ</a>
-                            <?php endif;?>
-                        </div>
                     </div>
                 </div>
             </div>
