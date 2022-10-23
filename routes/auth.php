@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\user\MyProfileController;
 use App\Http\Controllers\user\api\UserApiController;
+use App\Http\Controllers\posts\CreatePostController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\NewPasswordController;
@@ -69,6 +70,9 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/user/api/delete',[UserApiController::class, 'delete_api'])
         ->middleware(['auth', 'verified'])->name('userapidelete');
-
     //----
+
+    //Post
+    Route::get('/posts/create', [CreatePostController::class, 'get'])
+        ->middleware(['auth', 'verified'])->name('postcreate');
 });
