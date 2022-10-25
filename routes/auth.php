@@ -72,7 +72,10 @@ Route::middleware('auth')->group(function () {
         ->middleware(['auth', 'verified'])->name('userapidelete');
     //----
 
-    //Post
+    //Посты
     Route::get('/posts/create', [CreatePostController::class, 'get'])
         ->middleware(['auth', 'verified'])->name('postcreate');
+    Route::post('/posts/create/add', [CreatePostController::class, 'add'])
+        ->middleware(['auth', 'verified'])->name('postcreateadd');
+    //----
 });

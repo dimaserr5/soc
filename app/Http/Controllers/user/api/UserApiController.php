@@ -49,9 +49,11 @@ class UserApiController extends Controller
                     if($check_name) {
                         $json = '{"status":"error","text":"Ошибка, данное имя уже существует"}';
                     }else {
+                        
                         $add = UserApiModel::addApiKey(auth::Id(), $name);
 
                         $json = '{"status":"ok","text":"Успешно"}';
+
                     }
                 }
             }
